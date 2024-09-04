@@ -12,7 +12,9 @@ mongoose.connect(process.env.APPSTORE_URL).then(() => {
 })
 
 const app = express();
-app.use(cors()) //cors is a middleware
+app.use(cors({
+    origin: `https://app-store-backend.vercel.app/app`
+})) //cors is a middleware
 app.use(express.json());
 
 app.use('/app', router);
