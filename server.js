@@ -12,10 +12,10 @@ mongoose.connect(process.env.APPSTORE_URL).then(() => {
 })
 
 const app = express();
-app.use(cors())
+app.use(cors({origin:"http://localhost:3001"})) //cors is a middleware
 app.use(express.json());
 
-app.use('/apps', router);
+app.use('/app', router);
 
 app.listen(3000, () => {
     console.log("Server is connected");
